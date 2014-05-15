@@ -6,6 +6,9 @@ cd /etc/yum.repos.d
 wget http://people.centos.org/tru/devtools-1.1/devtools-1.1.repo 
 yum --enablerepo=testing-1.1-devtools-6 --skip-broken install devtoolset-1.1-gcc devtoolset-1.1-gcc-c++
 
+#Probably not the most elegent way to do this
+ln -s /opt/centos/devtoolset-1.1/root/usr/bin/* /usr/bin/ --force
+
 # Install Python 2.7.6
 # install interpreter
 cd /code/py
