@@ -7,11 +7,12 @@ wget http://people.centos.org/tru/devtools-1.1/devtools-1.1.repo
 yum --enablerepo=testing-1.1-devtools-6 install devtoolset-1.1-gcc devtoolset-1.1-gcc-c++
 
 #upgrade to ZeroMQ/3.2.2
-yum remove zeromq zeromq-devel
+yum remove -y zeromq zeromq-devel
 wget http://download.zeromq.org/zeromq-3.2.2.tar.gz
 tar zxvf zeromq-3.2.2.tar.gz && cd zeromq-3.2.2
 ./configure
 make && make install
+cp /usr/local/lib/libzmq* /usr/lib64/
 wget http://people.centos.org/tru/devtools-1.1/devtools-1.1.repo 
 yum --enablerepo=testing-1.1-devtools-6 --skip-broken install devtoolset-1.1-gcc devtoolset-1.1-gcc-c++
 
